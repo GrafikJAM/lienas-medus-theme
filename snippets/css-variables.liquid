@@ -42,6 +42,7 @@
 
     --font-heading: {% if settings.use_larken %}'Larken', {% endif %}{{ heading_fallback.family }}, {{ heading_fallback.fallback_families }};
     --font-heading-weight: {{ settings.heading_weight }};
+    --heading-lh: {{ settings.heading_line_height | default: 1.0 }};
     --font-body: {{ body_font.family }}, {{ body_font.fallback_families }};
     --font-body-weight: {{ body_font.weight }};
     --font-body-weight-bold: {{ body_font_bold.weight }};
