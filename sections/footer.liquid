@@ -27,7 +27,14 @@
     </div>
   </div>
 
-  <p class="site-footer__big page-width" aria-hidden="true">{{ section.settings.big_text }}</p>
+  <div class="page-width site-footer__brand">
+    {%- if section.settings.big_text != blank -%}
+      <p class="site-footer__big" aria-hidden="true">{{ section.settings.big_text }}</p>
+    {%- else -%}
+      {%- render 'logo-horizontal', class: 'site-footer__logo', label: shop.name -%}
+    {%- endif -%}
+    {%- render 'logo-badge', class: 'site-footer__badge' -%}
+  </div>
 
   <div class="page-width">
     <div class="site-footer__bottom">
@@ -49,7 +56,7 @@
   "settings": [
     { "type": "text", "id": "newsletter_heading", "label": "Newsletter heading", "default": "Piesakies jaunumiem" },
     { "type": "richtext", "id": "address", "label": "Contact info" },
-    { "type": "text", "id": "big_text", "label": "Big wordmark", "default": "Lienas Medus" },
+    { "type": "text", "id": "big_text", "label": "Big wordmark text (optional)", "info": "Leave empty to show the LIENAS ⬢ MEDUS logo." },
     {
       "type": "select", "id": "scheme", "label": "Colour", "default": "dark",
       "options": [

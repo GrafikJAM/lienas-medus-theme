@@ -9,7 +9,7 @@
         "info": { "type": "menu", "settings": { "heading": "Informācija", "menu": "footer" } }
       },
       "block_order": ["shop", "info"],
-      "settings": { "scheme": "dark", "big_text": "Lienas Medus" }
+      "settings": { "scheme": "dark", "big_text": "" }
     }
   },
   "order": ["footer"]

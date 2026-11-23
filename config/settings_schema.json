@@ -27,7 +27,7 @@
         "type": "checkbox",
         "id": "use_larken",
         "label": "Use Larken for headings",
-        "info": "Upload Larken-Regular, -Bold, -ExtraBold and -BoldItalic .woff2 files in Content → Files (see README).",
+        "info": "Needs the six larken-*.woff2 files in Content → Files (see README). Untick to use the fallback font below.",
         "default": true
       },
       {
@@ -64,8 +64,8 @@
   {
     "name": "Brand assets",
     "settings": [
-      { "type": "image_picker", "id": "favicon", "label": "Favicon", "info": "Use the round Ģimenes saimniecība badge, 64 × 64 px." },
-      { "type": "image_picker", "id": "badge_image", "label": "Round brand badge", "info": "Used as a stamp on sections that enable it." }
+      { "type": "image_picker", "id": "favicon", "label": "Favicon", "info": "Optional. Defaults to the LM hexagon icon." },
+      { "type": "image_picker", "id": "badge_image", "label": "Round brand badge", "info": "Optional. Leave empty to use the built-in vector badge." }
     ]
   },
   {

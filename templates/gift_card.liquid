@@ -12,7 +12,7 @@
   <body>
     <main class="section scheme-honey" style="min-height:100vh">
       <div class="page-width text-center" style="max-width: 640px">
-        <p class="eyebrow">{{ shop.name }}</p>
+        {%- render 'logo-horizontal', class: 'giftcard-logo', label: shop.name -%}
         <h1>{{ 'gift_card.title' | t }}</h1>
         <p class="display">{{ gift_card.balance | money }}</p>
         <p class="label">{{ 'gift_card.code' | t }}</p>
