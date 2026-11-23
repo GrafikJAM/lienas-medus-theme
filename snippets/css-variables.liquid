@@ -1,11 +1,10 @@
 {%- comment -%}
   Brand tokens and fonts.
-  Headings: Larken (EllenLuff). The licensed font files are NOT in this public
-  repo. Upload these six files to Shopify admin → Content → Files, with the
-  names unchanged:
-    larken-regular.woff2, larken-italic.woff2, larken-medium.woff2,
-    larken-bold.woff2, larken-bold-italic.woff2, larken-extrabold.woff2
-  (woff2, subset to Latin + Latin Extended, so all Latvian letters are included).
+  Headings: Larken (EllenLuff), loaded from Shopify admin → Content → Files
+  (licensed font, kept out of this public repo). Each weight tries, in order:
+    1. the OTFs already in Files: EllenLuff_-_Larken_Regular / _Medium /
+       _Medium_Italic / _Bold / _Bold_Italic .otf
+    2. EllenLuff_-_Larken_Variable.ttf (covers every weight incl. ExtraBold)
   Body: Josefin Sans from the Shopify font library (theme setting).
 {%- endcomment -%}
 {%- liquid
@@ -14,7 +13,7 @@
   assign heading_fallback = settings.type_heading_fallback
 -%}
 {%- if settings.use_larken -%}
-  {{ 'larken-bold.woff2' | file_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+  {{ 'EllenLuff_-_Larken_Bold.otf' | file_url | preload_tag: as: 'font', type: 'font/otf', crossorigin: 'anonymous' }}
 {%- endif -%}
 <style>
   {{ body_font | font_face: font_display: 'swap' }}
@@ -22,12 +21,12 @@
   {{ heading_fallback | font_face: font_display: 'swap' }}
 
   {%- if settings.use_larken -%}
-  @font-face { font-family: 'Larken'; src: url('{{ 'larken-regular.woff2' | file_url }}') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
-  @font-face { font-family: 'Larken'; src: url('{{ 'larken-italic.woff2' | file_url }}') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
-  @font-face { font-family: 'Larken'; src: url('{{ 'larken-medium.woff2' | file_url }}') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
-  @font-face { font-family: 'Larken'; src: url('{{ 'larken-bold.woff2' | file_url }}') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
-  @font-face { font-family: 'Larken'; src: url('{{ 'larken-bold-italic.woff2' | file_url }}') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }
-  @font-face { font-family: 'Larken'; src: url('{{ 'larken-extrabold.woff2' | file_url }}') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Larken'; src: url('{{ 'EllenLuff_-_Larken_Regular.otf' | file_url }}') format('opentype'), url('{{ 'EllenLuff_-_Larken_Variable.ttf' | file_url }}') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Larken'; src: url('{{ 'EllenLuff_-_Larken_Medium.otf' | file_url }}') format('opentype'), url('{{ 'EllenLuff_-_Larken_Variable.ttf' | file_url }}') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Larken'; src: url('{{ 'EllenLuff_-_Larken_Bold.otf' | file_url }}') format('opentype'), url('{{ 'EllenLuff_-_Larken_Variable.ttf' | file_url }}') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Larken'; src: url('{{ 'EllenLuff_-_Larken_Variable.ttf' | file_url }}') format('truetype'); font-weight: 800; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Larken'; src: url('{{ 'EllenLuff_-_Larken_Medium_Italic.otf' | file_url }}') format('opentype'); font-weight: 400; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'Larken'; src: url('{{ 'EllenLuff_-_Larken_Bold_Italic.otf' | file_url }}') format('opentype'); font-weight: 700; font-style: italic; font-display: swap; }
   {%- endif -%}
 
   :root {

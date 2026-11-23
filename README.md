@@ -23,19 +23,10 @@ Fonts: **Larken** (headings) + **Josefin Sans** (body, from the Shopify font lib
 
 ### Larken webfont
 
-Larken is a licensed font, so the files are **not** in this public repo. Upload these
-six web font files once in **Shopify admin → Content → Files** (keep the names exactly):
-
-- `larken-regular.woff2`
-- `larken-italic.woff2`
-- `larken-medium.woff2`
-- `larken-bold.woff2`
-- `larken-bold-italic.woff2`
-- `larken-extrabold.woff2`
-
-They are converted from the licensed OTFs and subset to Latin + Latin Extended, so all
-Latvian letters are included. The theme loads them with `file_url`. Until they're uploaded,
-headings use the *Heading fallback font* setting.
+Larken is a licensed font, so the files are **not** in this public repo. The theme loads
+them from **Shopify admin → Content → Files** and uses the files already uploaded there:
+`EllenLuff_-_Larken_Regular.otf`, `_Medium.otf`, `_Medium_Italic.otf`, `_Bold.otf`,
+`_Bold_Italic.otf` and `EllenLuff_-_Larken_Variable.ttf` (ExtraBold and fallback).
 
 ### Logos
 
@@ -58,7 +49,7 @@ image in the theme editor.
 ## Store setup after installing
 
 1. **Header**: set the menu (the logo is built in).
-2. Logos, badge and favicon are bundled. Upload the six Larken files to Content → Files (above).
+2. Logos, badge and favicon are bundled. Larken is read from the font files already in Content → Files (above).
 3. **Product tags** drive the stickers: `medus`, `mix`, `popular`, `bio`, `new`.
 4. **Label colour per product** (optional): create a product metafield
    `custom.label_color` (type *Colour*) — cards and product pages tint with it.
