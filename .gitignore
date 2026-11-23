@@ -1,8 +1,8 @@
-.DS_Store
-node_modules/
-config/settings_data.json.bak
 *.otf
 *.ttf
 *.woff
 *.woff2
+.DS_Store
 .shopify/
+config/settings_data.json.bak
+node_modules/

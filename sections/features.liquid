@@ -8,7 +8,7 @@
             {%- if block.settings.icon -%}
               {{ block.settings.icon | image_url: width: 160 | image_tag: loading: 'lazy', alt: '' }}
             {%- else -%}
-              {% render 'icon', name: 'hex' %}
+              {% render 'logo-mark', class: 'feature__mark' %}
             {%- endif -%}
           </div>
           <h3>{{ block.settings.title }}</h3>

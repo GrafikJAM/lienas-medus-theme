@@ -1,0 +1,10 @@
+{%- comment -%}
+  LM hexagon mark.
+  Vector traced from the brand source files (lm_logos_2.ai). Uses currentColor,
+  so it takes the text colour of whatever section it sits in.
+  Usage: {% render 'logo-mark', class: 'my-class', label: shop.name %}
+{%- endcomment -%}
+<svg class="{{ class }}" xmlns="http://www.w3.org/2000/svg" viewBox="416 22 252 280" width="252" height="280" fill="currentColor" {% if label != blank %}role="img" aria-label="{{ label | escape }}"{% else %}aria-hidden="true" focusable="false"{% endif %}>
+  <path d="M 601.22 146.09 L 631.31 115.91 C 643.58 103.60 640.87 83.00 625.82 74.30 L 542.03 25.87 L 441.33 84.10 C 427.83 91.91 419.51 106.32 419.51 121.92 L 419.51 175.98 C 419.51 203.39 441.73 225.62 469.14 225.62 L 538.03 225.62 L 538.03 170.66 L 537.94 82.87 Z M 601.22 146.09"/>
+  <path d="M 546.04 233.78 L 433.38 233.78 L 542.03 296.51 L 641.11 239.28 C 654.62 231.48 662.94 217.06 662.94 201.45 L 662.94 95.76 L 601.04 157.69 L 546.19 102.78 Z M 546.04 233.78"/>
+</svg>

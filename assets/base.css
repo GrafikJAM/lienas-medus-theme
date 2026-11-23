@@ -422,3 +422,19 @@ body.drawer-open { overflow: hidden; }
 .shopify-section + .shopify-section .rule-top-auto { border-top: var(--rule); }
 [hidden] { display: none !important; }
 .drawer__panel > .shopify-section { display: contents; }
+
+/* ---------- Brand logo (vector) ---------- */
+.site-header__logo-svg { height: var(--logo-h, 40px); width: auto; }
+.site-header__logo img { max-height: var(--logo-h, 40px); }
+@media (max-width: 899px) { .site-header__logo-svg { height: calc(var(--logo-h, 40px) * .75); } }
+.stamp { background: var(--c-light); color: var(--c-dark); padding: 8px; box-shadow: 0 0 0 3px var(--c-dark); }
+.scheme-light .stamp { background: var(--c-honey); }
+.stamp .stamp__svg { display: block; width: 100%; height: 100%; max-width: none; }
+.feature__mark { width: 44px; height: auto; }
+.site-footer__brand { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-top: 1rem; padding-bottom: 2rem; }
+.site-footer__logo { width: min(100%, 560px); height: auto; }
+.site-footer__badge { width: clamp(90px, 12vw, 160px); height: auto; flex: none; animation: spin 40s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .site-footer__badge { animation: none; } }
+@media (max-width: 599px) { .site-footer__badge { display: none; } }
+.password-badge { width: min(70vw, 280px); height: auto; margin: 0 auto 2rem; }
+.giftcard-logo { width: min(80vw, 420px); height: auto; margin: 0 auto 2rem; }

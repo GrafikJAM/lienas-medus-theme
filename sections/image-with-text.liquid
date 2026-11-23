@@ -6,9 +6,7 @@
     {%- else -%}
       {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
     {%- endif -%}
-    {%- if s.show_stamp and settings.badge_image -%}
-      <div class="stamp">{{ settings.badge_image | image_url: width: 300 | image_tag: loading: 'lazy', alt: '' }}</div>
-    {%- endif -%}
+    {%- if s.show_stamp -%}{% render 'brand-stamp' %}{%- endif -%}
   </div>
   <div class="split__content reveal">
     {%- if s.big_number != blank -%}<div class="split__year">{{ s.big_number }}</div>{%- endif -%}

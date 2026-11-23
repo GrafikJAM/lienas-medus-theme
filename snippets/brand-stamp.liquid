@@ -1,0 +1,11 @@
+{%- comment -%}
+  Rotating round brand badge. Uses the uploaded badge image if set in theme
+  settings, otherwise the built-in vector badge.
+{%- endcomment -%}
+<div class="stamp">
+  {%- if settings.badge_image -%}
+    {{ settings.badge_image | image_url: width: 300 | image_tag: loading: 'lazy', alt: '' }}
+  {%- else -%}
+    {%- render 'logo-badge', class: 'stamp__svg' -%}
+  {%- endif -%}
+</div>

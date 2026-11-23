@@ -23,16 +23,27 @@ Fonts: **Larken** (headings) + **Josefin Sans** (body, from the Shopify font lib
 
 ### Larken webfont
 
-The licensed font files are intentionally **not** in this repo. Once a webfont licence
-is in place, convert the files to `.woff2` and upload them in
-**Shopify admin → Content → Files** with these exact names:
+Larken is a licensed font, so the files are **not** in this public repo. Upload these
+six web font files once in **Shopify admin → Content → Files** (keep the names exactly):
 
-- `Larken-Regular.woff2`
-- `Larken-Bold.woff2`
-- `Larken-ExtraBold.woff2`
-- `Larken-BoldItalic.woff2`
+- `larken-regular.woff2`
+- `larken-italic.woff2`
+- `larken-medium.woff2`
+- `larken-bold.woff2`
+- `larken-bold-italic.woff2`
+- `larken-extrabold.woff2`
 
-Until then headings use the *Heading fallback font* setting (Playfair Display).
+They are converted from the licensed OTFs and subset to Latin + Latin Extended, so all
+Latvian letters are included. The theme loads them with `file_url`. Until they're uploaded,
+headings use the *Heading fallback font* setting.
+
+### Logos
+
+The logo, LM mark and round badge are inline vector snippets traced from the brand
+source files (`snippets/logo-horizontal.liquid`, `logo-mark.liquid`, `logo-badge.liquid`).
+They use `currentColor`, so they turn light on dark sections automatically. The favicon is
+`assets/favicon.png` (LM icon). You can still override any of them with an uploaded
+image in the theme editor.
 
 ## Structure
 
@@ -46,8 +57,8 @@ Until then headings use the *Heading fallback font* setting (Playfair Display).
 
 ## Store setup after installing
 
-1. **Header**: upload the horizontal logo; set the menu.
-2. **Theme settings → Brand assets**: upload the round "Ģimenes saimniecība" badge (favicon + rotating stamp).
+1. **Header**: set the menu (the logo is built in).
+2. Logos, badge and favicon are bundled. Upload the six Larken files to Content → Files (above).
 3. **Product tags** drive the stickers: `medus`, `mix`, `popular`, `bio`, `new`.
 4. **Label colour per product** (optional): create a product metafield
    `custom.label_color` (type *Colour*) — cards and product pages tint with it.

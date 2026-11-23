@@ -14,12 +14,12 @@
       </nav>
     </div>
 
-    <a class="site-header__logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+    <a class="site-header__logo" href="{{ routes.root_url }}" style="--logo-h: {{ section.settings.logo_height }}px">
       {%- if section.settings.logo -%}
         {%- assign logo_style = 'max-height: ' | append: section.settings.logo_height | append: 'px' -%}
         {{ section.settings.logo | image_url: width: 400 | image_tag: loading: 'eager', widths: '200, 300, 400', sizes: '200px', alt: shop.name, style: logo_style }}
       {%- else -%}
-        <span class="logo-text">Lienas</span>{% render 'icon', name: 'hex' %}<span class="logo-text">Medus</span>
+        {%- render 'logo-horizontal', class: 'site-header__logo-svg', label: shop.name -%}
       {%- endif -%}
     </a>
 
@@ -50,8 +50,8 @@
   "name": "Header",
   "class": "header-section",
   "settings": [
-    { "type": "image_picker", "id": "logo", "label": "Logo", "info": "Use the horizontal LIENAS ⬢ MEDUS logo." },
-    { "type": "range", "id": "logo_height", "label": "Logo height", "min": 24, "max": 80, "step": 2, "unit": "px", "default": 44 },
+    { "type": "image_picker", "id": "logo", "label": "Custom logo image (optional)", "info": "Leave empty to use the built-in vector LIENAS ⬢ MEDUS logo." },
+    { "type": "range", "id": "logo_height", "label": "Logo height", "min": 24, "max": 80, "step": 2, "unit": "px", "default": 48 },
     { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
     {
       "type": "select", "id": "scheme", "label": "Colour", "default": "light",
