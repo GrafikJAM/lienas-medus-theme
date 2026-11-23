@@ -1,0 +1,65 @@
+{%- liquid
+  assign menu = section.settings.menu
+-%}
+<header class="site-header scheme-{{ section.settings.scheme }}">
+  <div class="page-width site-header__inner">
+    <div>
+      <button type="button" class="icon-button menu-toggle" data-menu-open aria-label="{{ 'general.menu' | t }}">{% render 'icon', name: 'menu' %}</button>
+      <nav class="site-header__nav" aria-label="{{ 'general.menu' | t }}">
+        <ul>
+          {%- for link in menu.links -%}
+            <li><a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    </div>
+
+    <a class="site-header__logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+      {%- if section.settings.logo -%}
+        {%- assign logo_style = 'max-height: ' | append: section.settings.logo_height | append: 'px' -%}
+        {{ section.settings.logo | image_url: width: 400 | image_tag: loading: 'eager', widths: '200, 300, 400', sizes: '200px', alt: shop.name, style: logo_style }}
+      {%- else -%}
+        <span class="logo-text">Lienas</span>{% render 'icon', name: 'hex' %}<span class="logo-text">Medus</span>
+      {%- endif -%}
+    </a>
+
+    <div class="site-header__icons">
+      <a href="{{ routes.search_url }}" class="icon-button" aria-label="{{ 'general.search' | t }}">{% render 'icon', name: 'search' %}</a>
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{{ routes.account_url }}" class="icon-button hide-mobile" aria-label="{{ 'general.account' | t }}">{% render 'icon', name: 'account' %}</a>
+      {%- endif -%}
+      <a href="{{ routes.cart_url }}" class="icon-button" data-cart-open aria-label="{{ 'general.cart' | t }}">
+        {% render 'icon', name: 'cart' %}
+        <span class="cart-count" data-cart-count{% if cart.item_count == 0 %} hidden{% endif %}>{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="mobile-nav" data-mobile-nav>
+    <button type="button" class="icon-button mobile-nav__close" data-menu-close aria-label="{{ 'general.close' | t }}">{% render 'icon', name: 'close' %}</button>
+    <ul>
+      {%- for link in menu.links -%}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "header-section",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo", "info": "Use the horizontal LIENAS ⬢ MEDUS logo." },
+    { "type": "range", "id": "logo_height", "label": "Logo height", "min": 24, "max": 80, "step": 2, "unit": "px", "default": 44 },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    {
+      "type": "select", "id": "scheme", "label": "Colour", "default": "light",
+      "options": [
+        { "value": "light", "label": "Light" }, { "value": "honey", "label": "Honey" }, { "value": "dark", "label": "Dark" }
+      ]
+    }
+  ],
+  "enabled_on": { "groups": ["header"] }
+}
+{% endschema %}

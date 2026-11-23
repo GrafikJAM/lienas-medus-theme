@@ -1,0 +1,52 @@
+<section class="section scheme-{{ section.settings.scheme }}">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}<h2 class="text-center">{{ section.settings.heading }}</h2>{%- endif -%}
+    <div class="features" style="--cols: {{ section.blocks.size | at_most: 4 }}">
+      {%- for block in section.blocks -%}
+        <div class="feature reveal" {{ block.shopify_attributes }}>
+          <div class="feature__icon">
+            {%- if block.settings.icon -%}
+              {{ block.settings.icon | image_url: width: 160 | image_tag: loading: 'lazy', alt: '' }}
+            {%- else -%}
+              {% render 'icon', name: 'hex' %}
+            {%- endif -%}
+          </div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Features",
+  "max_blocks": 4,
+  "settings": [
+    {"type": "select", "id": "scheme", "label": "Colour block", "default": "light", "options": [{"value": "light", "label": "LM Light"}, {"value": "honey", "label": "LM Honey"}, {"value": "dark", "label": "LM Dark"}, {"value": "propolis", "label": "LM Propolis"}, {"value": "green", "label": "Green"}, {"value": "lime", "label": "Lime"}, {"value": "lavender", "label": "Lavender"}, {"value": "sky", "label": "Sky"}]},
+    { "type": "text", "id": "heading", "label": "Heading" }
+  ],
+  "blocks": [
+    {
+      "type": "feature", "name": "Feature",
+      "settings": [
+        { "type": "image_picker", "id": "icon", "label": "Icon" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Bioloģisks" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Bez ķimikālijām, tikai bites, pļava un mežs." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features",
+      "blocks": [
+        { "type": "feature", "settings": { "title": "Bioloģisks", "text": "Bez ķimikālijām – tikai bites, pļava un mežs." } },
+        { "type": "feature", "settings": { "title": "Ģimenes saimniecība", "text": "Dzimtas tradīcijas biškopībā kopš 2006. gada." } },
+        { "type": "feature", "settings": { "title": "Roku darbs", "text": "Katrs maisījums sajaukts ar rokām mazās partijās." } },
+        { "type": "feature", "settings": { "title": "Piegāde ceturtdienās", "text": "Bezmaksas piegāde katru ceturtdienu 8:00–16:00." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

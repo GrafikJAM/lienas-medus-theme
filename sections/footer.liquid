@@ -1,0 +1,73 @@
+<footer class="site-footer scheme-{{ section.settings.scheme }}">
+  <div class="page-width">
+    <div class="site-footer__grid">
+      <div>
+        <h2>{{ section.settings.newsletter_heading }}</h2>
+        {%- form 'customer', class: 'newsletter-form', id: 'FooterNewsletter' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <label class="visually-hidden" for="FooterEmail">{{ 'newsletter.email' | t }}</label>
+          <input id="FooterEmail" type="email" name="contact[email]" required autocomplete="email" placeholder="{{ 'newsletter.email' | t }}">
+          <button type="submit" class="button button--honey">{{ 'newsletter.subscribe' | t }}</button>
+          {%- if form.posted_successfully? -%}<p class="form-message" role="status">{{ 'newsletter.success' | t }}</p>{%- endif -%}
+        {%- endform -%}
+        {%- if section.settings.address != blank -%}
+          <div class="rte" style="margin-top:1.5rem">{{ section.settings.address }}</div>
+        {%- endif -%}
+      </div>
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }}>
+          <h2>{{ block.settings.heading | default: block.settings.menu.title }}</h2>
+          <ul>
+            {%- for link in block.settings.menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <p class="site-footer__big page-width" aria-hidden="true">{{ section.settings.big_text }}</p>
+
+  <div class="page-width">
+    <div class="site-footer__bottom">
+      <span>© {{ 'now' | date: '%Y' }} {{ shop.name }}</span>
+      <div class="social">
+        {%- if settings.social_instagram != blank -%}<a href="{{ settings.social_instagram }}" aria-label="Instagram">{% render 'icon', name: 'instagram' %}</a>{%- endif -%}
+        {%- if settings.social_facebook != blank -%}<a href="{{ settings.social_facebook }}" aria-label="Facebook">{% render 'icon', name: 'facebook' %}</a>{%- endif -%}
+        {%- if settings.social_tiktok != blank -%}<a href="{{ settings.social_tiktok }}" aria-label="TikTok">{% render 'icon', name: 'tiktok' %}</a>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "footer-section",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "text", "id": "newsletter_heading", "label": "Newsletter heading", "default": "Piesakies jaunumiem" },
+    { "type": "richtext", "id": "address", "label": "Contact info" },
+    { "type": "text", "id": "big_text", "label": "Big wordmark", "default": "Lienas Medus" },
+    {
+      "type": "select", "id": "scheme", "label": "Colour", "default": "dark",
+      "options": [
+        { "value": "dark", "label": "Dark" }, { "value": "honey", "label": "Honey" },
+        { "value": "green", "label": "Green" }, { "value": "propolis", "label": "Propolis" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" }
+      ]
+    }
+  ],
+  "enabled_on": { "groups": ["footer"] }
+}
+{% endschema %}

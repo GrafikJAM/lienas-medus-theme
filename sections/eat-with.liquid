@@ -1,0 +1,22 @@
+<section class="section scheme-{{ section.settings.scheme }}">
+  <div class="page-width reveal">
+    <p class="eat-with"><strong>{{ section.settings.lead }}</strong> {{ section.settings.list }}</p>
+    {%- if section.settings.button_label != blank -%}
+      <p style="margin-top:2.5rem"><a class="button" href="{{ section.settings.button_link }}">{{ section.settings.button_label }} {% render 'icon', name: 'arrow' %}</a></p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Big statement",
+  "settings": [
+    {"type": "select", "id": "scheme", "label": "Colour block", "default": "light", "options": [{"value": "light", "label": "LM Light"}, {"value": "honey", "label": "LM Honey"}, {"value": "dark", "label": "LM Dark"}, {"value": "propolis", "label": "LM Propolis"}, {"value": "green", "label": "Green"}, {"value": "lime", "label": "Lime"}, {"value": "lavender", "label": "Lavender"}, {"value": "sky", "label": "Sky"}]},
+    { "type": "text", "id": "lead", "label": "Underlined lead", "default": "Ēd to ar:" },
+    { "type": "textarea", "id": "list", "label": "Statement", "default": "tēju, sieru, svaigu maizi, jogurtu, pankūkām, auzu pārslām, marinādēm, salātiem, gaļu, zivīm un vienkārši ar karoti." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Receptes" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "Big statement" }]
+}
+{% endschema %}

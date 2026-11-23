@@ -1,0 +1,32 @@
+<section class="section scheme-{{ section.settings.scheme }}">
+  <div class="page-width" style="max-width: 820px">
+    <h2>{{ section.settings.heading }}</h2>
+    {%- if section.settings.text != blank -%}<div class="lead rte">{{ section.settings.text }}</div>{%- endif -%}
+    {%- form 'contact', id: 'ContactForm' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="form-message" role="status">{{ 'contact.success' | t }}</p>
+      {%- elsif form.errors -%}
+        <div class="form-message" role="alert">{{ form.errors | default_errors }}</div>
+      {%- endif -%}
+      <div class="form-grid" style="margin-top:1.5rem">
+        <div class="field"><label class="label" for="ContactName">{{ 'contact.name' | t }}</label><input id="ContactName" name="contact[name]" autocomplete="name" value="{{ form.name }}"></div>
+        <div class="field"><label class="label" for="ContactEmail">{{ 'contact.email' | t }} *</label><input id="ContactEmail" type="email" name="contact[email]" autocomplete="email" required value="{{ form.email }}"></div>
+        <div class="field field--full"><label class="label" for="ContactPhone">{{ 'contact.phone' | t }}</label><input id="ContactPhone" type="tel" name="contact[phone]" autocomplete="tel" value="{{ form.phone }}"></div>
+        <div class="field field--full"><label class="label" for="ContactBody">{{ 'contact.message' | t }}</label><textarea id="ContactBody" name="contact[body]" rows="6">{{ form.body }}</textarea></div>
+      </div>
+      <button type="submit" class="button" style="margin-top:1.5rem">{{ 'contact.send' | t }} {% render 'icon', name: 'arrow' %}</button>
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact form",
+  "settings": [
+    {"type": "select", "id": "scheme", "label": "Colour block", "default": "light", "options": [{"value": "light", "label": "LM Light"}, {"value": "honey", "label": "LM Honey"}, {"value": "dark", "label": "LM Dark"}, {"value": "propolis", "label": "LM Propolis"}, {"value": "green", "label": "Green"}, {"value": "lime", "label": "Lime"}, {"value": "lavender", "label": "Lavender"}, {"value": "sky", "label": "Sky"}]},
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Sazinies ar mums!" },
+    { "type": "richtext", "id": "text", "label": "Text" }
+  ],
+  "presets": [{ "name": "Contact form" }]
+}
+{% endschema %}

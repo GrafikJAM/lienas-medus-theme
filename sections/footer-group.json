@@ -1,0 +1,16 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "shop": { "type": "menu", "settings": { "heading": "Veikals", "menu": "main-menu" } },
+        "info": { "type": "menu", "settings": { "heading": "Informācija", "menu": "footer" } }
+      },
+      "block_order": ["shop", "info"],
+      "settings": { "scheme": "dark", "big_text": "Lienas Medus" }
+    }
+  },
+  "order": ["footer"]
+}

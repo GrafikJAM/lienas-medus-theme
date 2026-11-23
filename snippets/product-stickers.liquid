@@ -1,0 +1,23 @@
+{%- comment -%}
+  Hexagon stickers driven by product tags, matching the brand kit:
+    medus → "Medus" (honey), mix → "Maisījums" (green), popular → "Populārs" (lime),
+    bio → "Bioloģisks" (dark), new → "Jaunums" (lavender), sale → compare-at price.
+  Usage: {% render 'product-stickers', product: product %}
+{%- endcomment -%}
+{%- liquid
+  assign tags = product.tags | join: ',' | downcase
+-%}
+{%- if product.available == false -%}
+  <span class="sticker sticker--dark" style="--tilt:-3deg">{{ 'products.product.sold_out' | t }}</span>
+{%- elsif product.compare_at_price > product.price -%}
+  <span class="sticker sticker--propolis" style="--tilt:-5deg">{{ 'products.product.on_sale' | t }}</span>
+{%- endif -%}
+{%- if tags contains 'popular' -%}
+  <span class="sticker sticker--lime" style="--tilt:4deg">Populārs</span>
+{%- endif -%}
+{%- if tags contains 'new' -%}
+  <span class="sticker sticker--lavender" style="--tilt:-4deg">Jaunums</span>
+{%- endif -%}
+{%- if tags contains 'bio' -%}
+  <span class="sticker sticker--dark" style="--tilt:3deg">Bioloģisks</span>
+{%- endif -%}

@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "builder": {
+      "type": "gift-builder",
+      "settings": {
+        "scheme": "honey",
+        "gift_product": "saliec-savu-davanu-komplektu",
+        "collection": "medus-maisijumi",
+        "count": 3
+      }
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "scheme": "light",
+        "heading": "Gatavi komplekti",
+        "fallback_collection": "davanu-komplekti"
+      }
+    }
+  },
+  "order": [
+    "builder",
+    "related"
+  ]
+}

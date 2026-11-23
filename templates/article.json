@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-article"
+    },
+    "related": {
+      "type": "featured-collection",
+      "settings": {
+        "scheme": "honey",
+        "collection": "populari",
+        "heading": "Pamēģini"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "general": {
+    "page": "Page {{ page }}",
+    "menu": "Menu",
+    "close": "Close",
+    "search": "Search",
+    "account": "Account",
+    "cart": "Cart",
+    "view_all": "View all",
+    "previous": "Previous",
+    "next": "Next",
+    "read_more": "Read more",
+    "back_home": "Back home",
+    "continue_shopping": "Continue shopping"
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to content",
+    "quantity": "Quantity",
+    "decrease": "Decrease",
+    "increase": "Increase",
+    "remove": "Remove"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "adding": "Adding…",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "on_sale": "Sale",
+      "from": "From {{ price }}",
+      "regular_price": "Regular price",
+      "sale_price": "Sale price",
+      "size": "Size",
+      "quick_add": "Quick add",
+      "pairs_with": "Pairs well with",
+      "tax_included": "Tax included."
+    }
+  },
+  "collections": {
+    "empty": "No products here yet.",
+    "all": "All",
+    "products_count": {
+      "one": "{{ count }} product",
+      "other": "{{ count }} products"
+    },
+    "sort_by": "Sort by"
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty.",
+    "subtotal": "Subtotal",
+    "checkout": "Check out",
+    "taxes_note": "Shipping is calculated at checkout.",
+    "free_shipping_left": "{{ amount }} away from free delivery!",
+    "free_shipping_reached": "You've got free delivery!",
+    "note": "Order note",
+    "view_cart": "View cart"
+  },
+  "gift_builder": {
+    "title": "Build your own gift set",
+    "pick_more": "Pick [count] more",
+    "ready": "Add gift set to cart",
+    "selected": "Selected",
+    "property": "Gift set contents"
+  },
+  "newsletter": {
+    "email": "Email",
+    "subscribe": "Subscribe",
+    "success": "Thanks for subscribing!"
+  },
+  "search": {
+    "placeholder": "Search honey, mixes…",
+    "results_for": "Results for “{{ terms }}”",
+    "no_results": "Nothing found. Try another word."
+  },
+  "blog": {
+    "back": "Back to blog",
+    "by": "By {{ author }}"
+  },
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send",
+    "success": "Thanks! We'll be in touch."
+  },
+  "not_found": {
+    "title": "This page flew away",
+    "text": "Like a bee from the hive. Head back home or browse our honey."
+  },
+  "password": {
+    "enter": "Enter using password",
+    "password": "Password",
+    "submit": "Enter"
+  },
+  "gift_card": {
+    "title": "Your gift card",
+    "code": "Code",
+    "use": "Use in store",
+    "print": "Print"
+  }
+}

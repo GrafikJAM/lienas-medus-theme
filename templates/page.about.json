@@ -1,0 +1,62 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "scheme": "honey"
+      }
+    },
+    "story": {
+      "type": "image-with-text",
+      "settings": {
+        "scheme": "dark",
+        "big_number": "2006",
+        "show_stamp": true,
+        "button_label": ""
+      }
+    },
+    "family": {
+      "type": "image-with-text",
+      "settings": {
+        "scheme": "green",
+        "reverse": true,
+        "big_number": "",
+        "eyebrow": "Ģimenes saimniecība",
+        "heading": "Savas dzīves saimnieki.",
+        "text": "<p>Brīvības sākums ir radošā ikdiena, spēja patstāvīgi domāt un pieņemt ekoloģiskus lēmumus. Mēs turpinām dzimtas tradīcijas, kas izsenis saistītas ar biškopību un zemkopību.</p>",
+        "button_label": ""
+      }
+    },
+    "nature": {
+      "type": "image-with-text",
+      "settings": {
+        "scheme": "propolis",
+        "big_number": "",
+        "eyebrow": "No dabas līdz produktam",
+        "heading": "Upe, mežs, pļava un dārzs.",
+        "text": "<p>Mācāmies sajust zemi, augus un bites, un izpaužam šīs sajūtas gan radošajos darbos, gan produktos.</p>",
+        "button_label": "Visi produkti",
+        "button_link": "shopify://collections/visi-produkti"
+      }
+    },
+    "visit": {
+      "type": "banner",
+      "settings": {
+        "scheme": "honey",
+        "sticker": "Atbrauc ciemos!",
+        "sticker_color": "dark",
+        "heading": "Ciemojies mūsu saimniecībā",
+        "text": "<p>Iepazīsti mūsu lauksaimniecības procesus un ceļu uz radošu, dabīgu dzīvesveidu.</p>",
+        "button_label": "Piesakies",
+        "button_link": "shopify://pages/contact"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "story",
+    "family",
+    "nature",
+    "visit"
+  ]
+}

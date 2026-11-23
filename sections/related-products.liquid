@@ -1,0 +1,27 @@
+{%- assign s = section.settings -%}
+<section class="section scheme-{{ s.scheme }}">
+  <div class="page-width">
+    <div class="section-head"><h2>{{ s.heading }}</h2></div>
+    <div class="product-grid" style="--cols: 4">
+      {%- assign shown = 0 -%}
+      {%- for p in s.fallback_collection.products -%}
+        {%- if p.id != product.id and p.available and shown < 4 -%}
+          {% render 'product-card', product: p, quick_add: true %}
+          {%- assign shown = shown | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Pairs well with",
+  "settings": [
+    {"type": "select", "id": "scheme", "label": "Colour block", "default": "honey", "options": [{"value": "light", "label": "LM Light"}, {"value": "honey", "label": "LM Honey"}, {"value": "dark", "label": "LM Dark"}, {"value": "propolis", "label": "LM Propolis"}, {"value": "green", "label": "Green"}, {"value": "lime", "label": "Lime"}, {"value": "lavender", "label": "Lavender"}, {"value": "sky", "label": "Sky"}]},
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Lieliski sader ar" },
+    { "type": "collection", "id": "fallback_collection", "label": "Show products from", "info": "E.g. Populāri" }
+  ],
+  "presets": [{ "name": "Pairs well with" }]
+}
+{% endschema %}

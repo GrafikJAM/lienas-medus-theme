@@ -1,0 +1,78 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "stickers": {
+          "type": "stickers"
+        },
+        "title": {
+          "type": "title"
+        },
+        "price": {
+          "type": "price"
+        },
+        "desc": {
+          "type": "description"
+        },
+        "buy": {
+          "type": "buy",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "ship": {
+          "type": "text",
+          "settings": {
+            "text": "Bezmaksas piegāde ceturtdienās",
+            "style": "label"
+          }
+        },
+        "use": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Lietošana",
+            "content": "<p>Sajauc ar siltu (ne verdošu) ūdeni tējai, uzsmērē maizei vai pievieno marinādēm un salātiem.</p>"
+          }
+        },
+        "store": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Uzglabāšana",
+            "content": "<p>Uzglabāt sausā, vēsā vietā, sargāt no tiešiem saules stariem. Medus dabīgi kristalizējas.</p>"
+          }
+        },
+        "ship2": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Piegāde",
+            "content": "<p>Bezmaksas piegāde katru ceturtdienu 8:00–16:00.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "stickers",
+        "title",
+        "price",
+        "desc",
+        "buy",
+        "ship",
+        "use",
+        "store",
+        "ship2"
+      ]
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "scheme": "honey",
+        "heading": "Lieliski sader ar",
+        "fallback_collection": "populari"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related"
+  ]
+}

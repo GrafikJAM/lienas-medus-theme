@@ -1,0 +1,12 @@
+<section class="section scheme-honey" style="min-height: 60vh; display:grid; place-items:center">
+  <div class="page-width text-center">
+    <p class="display">404</p>
+    <h1 class="h2">{{ 'not_found.title' | t }}</h1>
+    <p class="lead">{{ 'not_found.text' | t }}</p>
+    <p style="margin-top:2rem"><a class="button" href="{{ routes.root_url }}">{{ 'general.back_home' | t }} {% render 'icon', name: 'arrow' %}</a></p>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "404" }
+{% endschema %}

@@ -1,0 +1,47 @@
+{%- comment -%}
+  Brand tokens and fonts.
+  Headings use Larken (EllenLuff). The licensed webfont files are NOT kept in
+  this repo: upload Larken-Regular.woff2, Larken-Bold.woff2, Larken-ExtraBold.woff2
+  and Larken-BoldItalic.woff2 in Shopify admin → Content → Files (exact names).
+  Until they exist the "Heading fallback font" setting is used.
+{%- endcomment -%}
+{%- liquid
+  assign body_font = settings.type_body_font
+  assign body_font_bold = body_font | font_modify: 'weight', 'bold'
+  assign heading_fallback = settings.type_heading_fallback
+-%}
+<style>
+  {{ body_font | font_face: font_display: 'swap' }}
+  {{ body_font_bold | font_face: font_display: 'swap' }}
+  {{ heading_fallback | font_face: font_display: 'swap' }}
+
+  {%- if settings.use_larken -%}
+  @font-face { font-family: 'Larken'; src: url('{{ 'Larken-Regular.woff2' | file_url }}') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Larken'; src: url('{{ 'Larken-Bold.woff2' | file_url }}') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Larken'; src: url('{{ 'Larken-ExtraBold.woff2' | file_url }}') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Larken'; src: url('{{ 'Larken-BoldItalic.woff2' | file_url }}') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }
+  {%- endif -%}
+
+  :root {
+    --c-dark: {{ settings.color_dark }};
+    --c-light: {{ settings.color_light }};
+    --c-honey: {{ settings.color_honey }};
+    --c-propolis: {{ settings.color_propolis }};
+    --c-green: {{ settings.color_green }};
+    --c-lime: {{ settings.color_lime }};
+    --c-lavender: {{ settings.color_lavender }};
+    --c-sky: {{ settings.color_sky }};
+    --c-white: #ffffff;
+
+    --font-heading: {% if settings.use_larken %}'Larken', {% endif %}{{ heading_fallback.family }}, {{ heading_fallback.fallback_families }};
+    --font-heading-weight: {{ settings.heading_weight }};
+    --font-body: {{ body_font.family }}, {{ body_font.fallback_families }};
+    --font-body-weight: {{ body_font.weight }};
+    --font-body-weight-bold: {{ body_font_bold.weight }};
+
+    --page-width: {{ settings.page_width }}px;
+    --gutter: clamp(16px, 3vw, 40px);
+    --rule: {{ settings.rule_width }}px solid var(--c-dark);
+    --radius: {{ settings.button_radius }}px;
+  }
+</style>
