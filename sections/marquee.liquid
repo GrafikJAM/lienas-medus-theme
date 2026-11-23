@@ -1,0 +1,34 @@
+{%- capture items -%}
+  {%- for block in section.blocks -%}
+    <span class="marquee__item" {{ block.shopify_attributes }}>{{ block.settings.text }}<span class="marquee__dot"></span></span>
+  {%- endfor -%}
+{%- endcapture -%}
+<section class="marquee scheme-{{ section.settings.scheme }}" aria-label="{{ section.blocks | map: 'settings' | map: 'text' | join: ', ' | escape }}">
+  <div class="marquee__track" style="--speed: {{ section.settings.speed }}s" aria-hidden="true">
+    {{ items }}{{ items }}{{ items }}{{ items }}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Scrolling text",
+  "settings": [
+    {"type": "select", "id": "scheme", "label": "Colour block", "default": "dark", "options": [{"value": "light", "label": "LM Light"}, {"value": "honey", "label": "LM Honey"}, {"value": "dark", "label": "LM Dark"}, {"value": "propolis", "label": "LM Propolis"}, {"value": "green", "label": "Green"}, {"value": "lime", "label": "Lime"}, {"value": "lavender", "label": "Lavender"}, {"value": "sky", "label": "Sky"}]},
+    { "type": "range", "id": "speed", "label": "Speed (seconds per loop)", "min": 10, "max": 80, "step": 5, "default": 35 }
+  ],
+  "blocks": [
+    { "type": "item", "name": "Text", "settings": [ { "type": "text", "id": "text", "label": "Text", "default": "Bioloģisks" } ] }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling text",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Bioloģisks medus" } },
+        { "type": "item", "settings": { "text": "Ģimenes saimniecība" } },
+        { "type": "item", "settings": { "text": "No pļavas līdz burciņai" } },
+        { "type": "item", "settings": { "text": "Kopš 2006" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

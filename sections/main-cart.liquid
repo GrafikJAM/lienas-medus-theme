@@ -1,0 +1,28 @@
+<section class="section">
+  <div class="page-width" style="max-width: 900px">
+    <h1>{{ 'cart.title' | t }}</h1>
+    {%- if cart.item_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post" id="CartForm">
+        <div style="border-top: var(--rule)">{% render 'cart-lines' %}</div>
+        <div class="field" style="margin-top:1.5rem">
+          <label class="label" for="CartNote">{{ 'cart.note' | t }}</label>
+          <textarea id="CartNote" name="note" rows="3">{{ cart.note }}</textarea>
+        </div>
+        <div style="display:grid; gap:.8rem; margin-top:2rem; max-width: 420px; margin-left:auto">
+          <div class="subtotal"><span>{{ 'cart.subtotal' | t }}</span><span>{{ cart.total_price | money_with_currency }}</span></div>
+          <small>{{ 'cart.taxes_note' | t }}</small>
+          <button type="submit" name="checkout" class="button button--honey button--block">{{ 'cart.checkout' | t }} {% render 'icon', name: 'arrow' %}</button>
+        </div>
+      </form>
+    {%- else -%}
+      <div class="empty-state">
+        <p class="h3">{{ 'cart.empty' | t }}</p>
+        <a class="button button--honey" href="{{ routes.all_products_collection_url }}">{{ 'general.continue_shopping' | t }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Cart" }
+{% endschema %}

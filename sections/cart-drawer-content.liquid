@@ -1,0 +1,30 @@
+<div data-cart-drawer-content style="display:contents">
+  {%- render 'shipping-bar' -%}
+  <div class="drawer__body">
+    {%- if cart.item_count > 0 -%}
+      {%- render 'cart-lines' -%}
+    {%- else -%}
+      <div class="empty-state">
+        <p class="h3">{{ 'cart.empty' | t }}</p>
+        <a class="button button--honey" href="{{ routes.all_products_collection_url }}">{{ 'general.continue_shopping' | t }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+  {%- if cart.item_count > 0 -%}
+    <div class="drawer__foot">
+      <div class="subtotal"><span>{{ 'cart.subtotal' | t }}</span><span>{{ cart.total_price | money_with_currency }}</span></div>
+      <small>{{ 'cart.taxes_note' | t }}</small>
+      <form action="{{ routes.cart_url }}" method="post">
+        <button type="submit" name="checkout" class="button button--honey button--block">{{ 'cart.checkout' | t }} {% render 'icon', name: 'arrow' %}</button>
+      </form>
+      <a href="{{ routes.cart_url }}" class="link-button text-center">{{ 'cart.view_cart' | t }}</a>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Cart drawer",
+  "settings": []
+}
+{% endschema %}

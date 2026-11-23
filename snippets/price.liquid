@@ -1,0 +1,21 @@
+{%- comment -%}
+  Renders a price. Pass product (uses selected_or_first_available_variant) or variant.
+  Usage: {% render 'price', product: product, show_from: true %}
+{%- endcomment -%}
+{%- liquid
+  if variant == blank
+    assign variant = product.selected_or_first_available_variant
+  endif
+  assign price = variant.price
+  assign compare = variant.compare_at_price
+-%}
+<div class="price" data-price>
+  {%- if show_from and product.price_varies -%}
+    <span>{{ 'products.product.from' | t: price: product.price_min | money }}</span>
+  {%- elsif compare > price -%}
+    <s><span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>{{ compare | money }}</s>
+    <span><span class="visually-hidden">{{ 'products.product.sale_price' | t }}</span>{{ price | money }}</span>
+  {%- else -%}
+    <span>{{ price | money }}</span>
+  {%- endif -%}
+</div>

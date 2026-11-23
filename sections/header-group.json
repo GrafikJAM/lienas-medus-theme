@@ -1,0 +1,15 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "settings": { "text": "BEZMAKSAS PIEGĀDE PASŪTĪJUMIEM VIRS €40", "scheme": "honey" }
+    },
+    "header": {
+      "type": "header",
+      "settings": { "menu": "main-menu", "scheme": "light" }
+    }
+  },
+  "order": ["announcement", "header"]
+}

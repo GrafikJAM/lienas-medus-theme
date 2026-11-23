@@ -1,0 +1,45 @@
+{%- liquid
+  assign s = section.settings
+  assign c = s.collection
+-%}
+<section class="section scheme-{{ s.scheme }}">
+  <div class="page-width">
+    <div class="section-head">
+      <div>
+        {%- if s.eyebrow != blank -%}<p class="eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+        <h2>{{ s.heading }}</h2>
+      </div>
+      {%- if c != blank and s.show_view_all -%}
+        <a class="button button--outline" href="{{ c.url }}">{{ 'general.view_all' | t }} {% render 'icon', name: 'arrow' %}</a>
+      {%- endif -%}
+    </div>
+    <div class="product-grid" style="--cols: {{ s.columns }}">
+      {%- if c != blank and c.products_count > 0 -%}
+        {%- for product in c.products limit: s.limit -%}
+          {% render 'product-card', product: product, quick_add: s.quick_add %}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..s.columns) -%}
+          <div class="card"><div class="card__media">{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}</div><div class="card__body"><h3 class="card__title">Medus</h3><div class="price">€4,50</div></div></div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured products",
+  "settings": [
+    {"type": "select", "id": "scheme", "label": "Colour block", "default": "light", "options": [{"value": "light", "label": "LM Light"}, {"value": "honey", "label": "LM Honey"}, {"value": "dark", "label": "LM Dark"}, {"value": "propolis", "label": "LM Propolis"}, {"value": "green", "label": "Green"}, {"value": "lime", "label": "Lime"}, {"value": "lavender", "label": "Lavender"}, {"value": "sky", "label": "Sky"}]},
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Mūsu klientu mīļākie" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Populārākie" },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "limit", "label": "Products to show", "min": 2, "max": 12, "step": 1, "default": 4 },
+    { "type": "range", "id": "columns", "label": "Columns (desktop)", "min": 2, "max": 4, "step": 1, "default": 4 },
+    { "type": "checkbox", "id": "quick_add", "label": "Show size picker + add to cart", "default": true },
+    { "type": "checkbox", "id": "show_view_all", "label": "Show “view all”", "default": true }
+  ],
+  "presets": [{ "name": "Featured products" }]
+}
+{% endschema %}

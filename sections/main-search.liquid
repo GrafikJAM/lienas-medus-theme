@@ -1,0 +1,33 @@
+<section class="collection-hero section--tight scheme-honey">
+  <div class="page-width">
+    <h1 class="display">{{ 'general.search' | t }}</h1>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="newsletter-form" style="margin-left:0">
+      <label class="visually-hidden" for="SearchInput">{{ 'general.search' | t }}</label>
+      <input id="SearchInput" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'search.placeholder' | t }}">
+      <input type="hidden" name="type" value="product">
+      <button class="button" type="submit">{{ 'general.search' | t }}</button>
+    </form>
+  </div>
+</section>
+<section class="page-width" style="padding-bottom: 4rem">
+  {%- if search.performed -%}
+    <p class="toolbar label">{{ 'search.results_for' | t: terms: search.terms }}</p>
+    {%- if search.results_count > 0 -%}
+      {%- paginate search.results by 24 -%}
+        <div class="product-grid" style="--cols: 4">
+          {%- for item in search.results -%}
+            {%- if item.object_type == 'product' -%}
+              {% render 'product-card', product: item, quick_add: true %}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endpaginate -%}
+    {%- else -%}
+      <p class="empty-state h3">{{ 'search.no_results' | t }}</p>
+    {%- endif -%}
+  {%- endif -%}
+</section>
+
+{% schema %}
+{ "name": "Search" }
+{% endschema %}

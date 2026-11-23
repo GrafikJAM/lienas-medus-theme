@@ -1,0 +1,52 @@
+{%- comment -%}
+  Product card with quick size switch + add to cart.
+  Tint comes from the product metafield custom.label_color (colour), so each
+  mix can carry its label colour (chilli red, mint green…).
+  Usage: {% render 'product-card', product: product, quick_add: true, loading: 'lazy' %}
+{%- endcomment -%}
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign tint = product.metafields.custom.label_color.value
+  assign uid = section.id | append: '-' | append: product.id
+  if loading == blank
+    assign loading = 'lazy'
+  endif
+-%}
+<div class="card" data-product{% if tint != blank %} style="--card-tint: {{ tint }};"{% endif %}>
+  <div class="card__media">
+    <div class="card__badges">{% render 'product-stickers', product: product %}</div>
+    {%- if product.featured_media -%}
+      {{ product.featured_media | image_url: width: 900 | image_tag: loading: loading, sizes: '(min-width: 990px) 25vw, 50vw', widths: '300, 450, 600, 900', alt: product.featured_media.alt | default: product.title }}
+      {%- if product.media[1] -%}
+        {{ product.media[1] | image_url: width: 900 | image_tag: loading: 'lazy', class: 'card__img-2', sizes: '(min-width: 990px) 25vw, 50vw', widths: '300, 450, 600, 900', alt: '' }}
+      {%- endif -%}
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
+  <div class="card__body">
+    <h3 class="card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <div class="card__price">{% render 'price', product: product %}</div>
+
+    {%- if quick_add -%}
+      {%- form 'product', product, class: 'card__form', data-ajax-cart: '' -%}
+        <input type="hidden" name="id" value="{{ variant.id }}">
+        {%- if product.has_only_default_variant == false and product.options.size == 1 -%}
+          <div class="card__sizes" data-variant-picker role="radiogroup" aria-label="{{ product.options.first | escape }}">
+            {%- for value in product.options_with_values.first.values -%}
+              <label class="size-pill">
+                <input type="radio" name="{{ uid }}-opt" value="{{ value | escape }}" {% if value == variant.option1 %}checked{% endif %}>
+                <span>{{ value }}</span>
+              </label>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+        <button type="submit" class="button button--block" {% unless variant.available %}disabled{% endunless %}>
+          {%- if variant.available -%}{{ 'products.product.add_to_cart' | t }}{%- else -%}{{ 'products.product.sold_out' | t }}{%- endif -%}
+          {% render 'icon', name: 'arrow' %}
+        </button>
+      {%- endform -%}
+      <script type="application/json" data-variants-json>{{ product.variants | json }}</script>
+    {%- endif -%}
+  </div>
+</div>

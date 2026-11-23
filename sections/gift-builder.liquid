@@ -1,0 +1,68 @@
+{%- liquid
+  assign s = section.settings
+  assign gift = s.gift_product
+  assign mixes = s.collection
+-%}
+<section class="section scheme-{{ s.scheme }}">
+  <div class="page-width">
+    <div class="section-head">
+      <div>
+        <span class="sticker sticker--{{ s.sticker_color }}" style="--tilt:-5deg; margin-bottom:1rem">{{ s.sticker }}</span>
+        <h2>{{ s.heading | default: gift.title }}</h2>
+        <div class="lead">{{ s.text }}</div>
+      </div>
+      {%- if gift -%}<div class="h3">{{ gift.price | money }}</div>{%- endif -%}
+    </div>
+
+    {%- if gift and mixes -%}
+      {%- form 'product', gift, data-ajax-cart: '', data-gift-builder: '', data-max: s.count -%}
+        <input type="hidden" name="id" value="{{ gift.selected_or_first_available_variant.id }}">
+        <input type="hidden" name="properties[{{ 'gift_builder.property' | t }}]" value="" data-gift-property>
+        <fieldset style="border:0;padding:0;margin:0">
+          <legend class="visually-hidden">{{ s.heading }}</legend>
+          <div class="gift-builder__grid">
+            {%- for product in mixes.products limit: 24 -%}
+              {%- if product.available -%}
+                <div class="gift-option">
+                  <input type="checkbox" id="gift-{{ section.id }}-{{ product.id }}" value="{{ product.title | escape }}">
+                  <label for="gift-{{ section.id }}-{{ product.id }}">
+                    {%- if product.featured_media -%}
+                      {{ product.featured_media | image_url: width: 400 | image_tag: loading: 'lazy', widths: '200, 300, 400', sizes: '180px', alt: '' }}
+                    {%- endif -%}
+                    <span>{{ product.title }}</span>
+                  </label>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </fieldset>
+        <div class="gift-builder__bar">
+          <div class="gift-builder__slots" aria-hidden="true">
+            {%- for i in (1..s.count) -%}<span class="gift-builder__slot"></span>{%- endfor -%}
+          </div>
+          <button type="submit" class="button button--honey" disabled>{{ 'gift_builder.ready' | t }}</button>
+        </div>
+      {%- endform -%}
+    {%- else -%}
+      <p>Choose the gift set product and the mixes collection in the theme editor.</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Gift set builder",
+  "settings": [
+    {"type": "select", "id": "scheme", "label": "Colour block", "default": "honey", "options": [{"value": "light", "label": "LM Light"}, {"value": "honey", "label": "LM Honey"}, {"value": "dark", "label": "LM Dark"}, {"value": "propolis", "label": "LM Propolis"}, {"value": "green", "label": "Green"}, {"value": "lime", "label": "Lime"}, {"value": "lavender", "label": "Lavender"}, {"value": "sky", "label": "Sky"}]},
+    { "type": "product", "id": "gift_product", "label": "Gift set product", "info": "E.g. “Saliec savu dāvanu komplektu!”" },
+    { "type": "collection", "id": "collection", "label": "Mixes to choose from", "info": "E.g. Medus Maisījumi" },
+    { "type": "range", "id": "count", "label": "Jars per set", "min": 2, "max": 6, "step": 1, "default": 3 },
+    { "type": "text", "id": "sticker", "label": "Sticker", "default": "3 burciņas · €15" },
+    { "type": "select", "id": "sticker_color", "label": "Sticker colour", "default": "dark", "options": [
+      { "value": "dark", "label": "Dark" }, { "value": "green", "label": "Green" }, { "value": "light", "label": "Light" }, { "value": "lavender", "label": "Lavender" } ] },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Saliec savu dāvanu komplektu" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Izvēlies 3 mīļākos medus maisījumus – mēs tos iesaiņosim dāvanai.</p>" }
+  ],
+  "presets": [{ "name": "Gift set builder" }]
+}
+{% endschema %}

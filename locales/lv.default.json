@@ -1,0 +1,103 @@
+{
+  "general": {
+    "page": "Lapa {{ page }}",
+    "menu": "Izvēlne",
+    "close": "Aizvērt",
+    "search": "Meklēt",
+    "account": "Konts",
+    "cart": "Grozs",
+    "view_all": "Skatīt visu",
+    "previous": "Iepriekšējā",
+    "next": "Nākamā",
+    "read_more": "Lasīt vairāk",
+    "back_home": "Uz sākumu",
+    "continue_shopping": "Turpināt iepirkties"
+  },
+  "accessibility": {
+    "skip_to_content": "Pāriet uz saturu",
+    "quantity": "Daudzums",
+    "decrease": "Samazināt",
+    "increase": "Palielināt",
+    "remove": "Noņemt"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Pievienot grozam",
+      "adding": "Pievieno…",
+      "sold_out": "Izpārdots",
+      "unavailable": "Nav pieejams",
+      "on_sale": "Akcija",
+      "from": "No {{ price }}",
+      "regular_price": "Parastā cena",
+      "sale_price": "Akcijas cena",
+      "size": "Izmērs",
+      "quick_add": "Ātri pievienot",
+      "pairs_with": "Lieliski sader ar",
+      "tax_included": "Cenā iekļauts PVN."
+    }
+  },
+  "collections": {
+    "empty": "Šajā kategorijā vēl nav produktu.",
+    "all": "Visi",
+    "products_count": {
+      "one": "{{ count }} produkts",
+      "other": "{{ count }} produkti"
+    },
+    "sort_by": "Kārtot"
+  },
+  "cart": {
+    "title": "Tavs grozs",
+    "empty": "Tavs grozs ir tukšs.",
+    "subtotal": "Starpsumma",
+    "checkout": "Noformēt pasūtījumu",
+    "taxes_note": "Piegāde tiek aprēķināta, noformējot pasūtījumu.",
+    "free_shipping_left": "Vēl {{ amount }} līdz bezmaksas piegādei!",
+    "free_shipping_reached": "Tev ir bezmaksas piegāde!",
+    "note": "Piezīme pasūtījumam",
+    "view_cart": "Skatīt grozu"
+  },
+  "gift_builder": {
+    "title": "Saliec savu dāvanu komplektu",
+    "pick_more": "Izvēlies vēl [count]",
+    "ready": "Pievienot komplektu grozam",
+    "selected": "Izvēlēts",
+    "property": "Komplekta saturs"
+  },
+  "newsletter": {
+    "email": "E-pasts",
+    "subscribe": "Pieteikties",
+    "success": "Paldies! Esi pieteicies jaunumiem."
+  },
+  "search": {
+    "placeholder": "Meklē medu, maisījumus…",
+    "results_for": "Rezultāti: “{{ terms }}”",
+    "no_results": "Nekas netika atrasts. Pamēģini citu vārdu."
+  },
+  "blog": {
+    "back": "Atpakaļ uz blogu",
+    "by": "Autors: {{ author }}"
+  },
+  "contact": {
+    "name": "Vārds",
+    "email": "E-pasts",
+    "phone": "Tālrunis",
+    "message": "Ziņa",
+    "send": "Sūtīt",
+    "success": "Paldies! Mēs ar Tevi sazināsimies."
+  },
+  "not_found": {
+    "title": "Šī lapa aizlidoja",
+    "text": "Kā bite no stropa. Atgriezies sākumā vai apskati mūsu medu."
+  },
+  "password": {
+    "enter": "Ieiet ar paroli",
+    "password": "Parole",
+    "submit": "Ieiet"
+  },
+  "gift_card": {
+    "title": "Tava dāvanu karte",
+    "code": "Kods",
+    "use": "Izmantot veikalā",
+    "print": "Drukāt"
+  }
+}

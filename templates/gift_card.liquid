@@ -1,0 +1,28 @@
+{%- layout none -%}
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ 'gift_card.title' | t }} – {{ shop.name }}</title>
+    {% render 'css-variables' %}
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+  </head>
+  <body>
+    <main class="section scheme-honey" style="min-height:100vh">
+      <div class="page-width text-center" style="max-width: 640px">
+        <p class="eyebrow">{{ shop.name }}</p>
+        <h1>{{ 'gift_card.title' | t }}</h1>
+        <p class="display">{{ gift_card.balance | money }}</p>
+        <p class="label">{{ 'gift_card.code' | t }}</p>
+        <p class="h3">{{ gift_card.code | format_code }}</p>
+        {%- if gift_card.pass_url -%}<p><a href="{{ gift_card.pass_url }}">Apple Wallet</a></p>{%- endif -%}
+        <p style="margin-top:2rem; display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap">
+          <a class="button" href="{{ shop.url }}">{{ 'gift_card.use' | t }}</a>
+          <button class="button button--outline" onclick="window.print()">{{ 'gift_card.print' | t }}</button>
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

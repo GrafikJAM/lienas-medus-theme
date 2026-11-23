@@ -1,0 +1,270 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "blocks": {
+        "s1": {
+          "type": "sticker",
+          "settings": {
+            "text": "Bioloģisks",
+            "color": "dark",
+            "top": 10,
+            "left": 6,
+            "tilt": -8
+          }
+        },
+        "s2": {
+          "type": "sticker",
+          "settings": {
+            "text": "Medus",
+            "color": "honey",
+            "top": 72,
+            "left": 58,
+            "tilt": 6
+          }
+        },
+        "s3": {
+          "type": "sticker",
+          "settings": {
+            "text": "Uzturs",
+            "color": "green",
+            "top": 80,
+            "left": 14,
+            "tilt": -4
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {
+        "scheme": "honey",
+        "button_link": "shopify://collections/visi-produkti",
+        "button2_link": "shopify://pages/par-mums"
+      }
+    },
+    "marquee": {
+      "type": "marquee",
+      "blocks": {
+        "m1": {
+          "type": "item",
+          "settings": {
+            "text": "Bioloģisks medus"
+          }
+        },
+        "m2": {
+          "type": "item",
+          "settings": {
+            "text": "Ģimenes saimniecība"
+          }
+        },
+        "m3": {
+          "type": "item",
+          "settings": {
+            "text": "No pļavas līdz burciņai"
+          }
+        },
+        "m4": {
+          "type": "item",
+          "settings": {
+            "text": "Kopš 2006"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
+      "settings": {
+        "scheme": "dark",
+        "speed": 35
+      }
+    },
+    "tiles": {
+      "type": "category-tiles",
+      "blocks": {
+        "t1": {
+          "type": "tile",
+          "settings": {
+            "collection": "medus",
+            "title": "Medus",
+            "sticker": "300 / 500 g",
+            "scheme": "honey",
+            "cta": "Skatīt"
+          }
+        },
+        "t2": {
+          "type": "tile",
+          "settings": {
+            "collection": "medus-maisijumi",
+            "title": "Maisījumi",
+            "sticker": "13 garšas",
+            "scheme": "green",
+            "cta": "Skatīt"
+          }
+        },
+        "t3": {
+          "type": "tile",
+          "settings": {
+            "collection": "davanu-komplekti",
+            "title": "Komplekti",
+            "sticker": "Dāvanām",
+            "scheme": "propolis",
+            "cta": "Skatīt"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {}
+    },
+    "bestsellers": {
+      "type": "featured-collection",
+      "settings": {
+        "scheme": "light",
+        "collection": "populari",
+        "limit": 4,
+        "columns": 4
+      }
+    },
+    "story": {
+      "type": "image-with-text",
+      "settings": {
+        "scheme": "dark",
+        "big_number": "2006",
+        "button_link": "shopify://pages/par-mums",
+        "show_stamp": true
+      }
+    },
+    "eat": {
+      "type": "eat-with",
+      "settings": {
+        "scheme": "lime",
+        "button_link": "shopify://blogs/blogs"
+      }
+    },
+    "mixes": {
+      "type": "featured-collection",
+      "settings": {
+        "scheme": "honey",
+        "eyebrow": "Medus + garšaugi",
+        "heading": "Medus maisījumi",
+        "collection": "medus-maisijumi",
+        "limit": 8,
+        "columns": 4
+      }
+    },
+    "features": {
+      "type": "features",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "title": "Bioloģisks",
+            "text": "Bez ķimikālijām – tikai bites, pļava un mežs."
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "title": "Ģimenes saimniecība",
+            "text": "Dzimtas tradīcijas biškopībā kopš 2006. gada."
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "title": "Roku darbs",
+            "text": "Katrs maisījums sajaukts ar rokām mazās partijās."
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "title": "Piegāde ceturtdienās",
+            "text": "Bezmaksas piegāde katru ceturtdienu 8:00–16:00."
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
+      "settings": {
+        "scheme": "light"
+      }
+    },
+    "box": {
+      "type": "banner",
+      "blocks": {
+        "b1": {
+          "type": "point",
+          "settings": {
+            "text": "Mazā kaste – €30, lielā – €50"
+          }
+        },
+        "b2": {
+          "type": "point",
+          "settings": {
+            "text": "Bezmaksas piegāde katru ceturtdienu 8:00–16:00"
+          }
+        },
+        "b3": {
+          "type": "point",
+          "settings": {
+            "text": "Tikai tas, kas šonedēļ izaudzis"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "scheme": "green",
+        "button_link": "shopify://products/nedelas-kaste"
+      }
+    },
+    "visit": {
+      "type": "banner",
+      "settings": {
+        "scheme": "propolis",
+        "sticker": "Atbrauc ciemos!",
+        "sticker_color": "honey",
+        "heading": "Ciemojies mūsu saimniecībā",
+        "text": "<p>Iepazīsti bites, dārzu un mūsu ceļu uz radošu, dabīgu dzīvesveidu.</p>",
+        "button_label": "Piesakies",
+        "button_link": "shopify://pages/contact"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "scheme": "honey"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "marquee",
+    "tiles",
+    "bestsellers",
+    "story",
+    "eat",
+    "mixes",
+    "features",
+    "box",
+    "visit",
+    "newsletter"
+  ]
+}
